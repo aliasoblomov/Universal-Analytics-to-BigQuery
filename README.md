@@ -1,5 +1,5 @@
 # Universal-Analytics-to-BigQuery
-This repository features a Python script designed extracting data from Universal Analytics, preparing it for compatibility, and subsequently loading it into Google BigQuery. This is particularly beneficial for businesses aiming to transfer their historical UA (GA3) data to BigQuery, especially those without access to Google Analytics 360.
+This repository features a Python script designed extracting data from Universal Analytics, preparing it for compatibility, and subsequently loading it into Google BigQuery. This is particularly beneficial for businesses aiming to transfer their historical UA (GA3) data to BigQuery, especially those without access to Google Analytics 360.For a detailed walkthrough on how to use this script, including setup instructions, customization tips, and best practices, check out my Medium article:[Backfill Universal Analytics to BigQuery: Zero Cost, Full Control](https://medium.com/@aliiz/export-from-universal-analytics-to-bigquery-zero-cost-full-control-6470092713b1) . This article provides in-depth guidance and practical steps to make your data migration journey as smooth as possible. 
 
 
 ## Features
