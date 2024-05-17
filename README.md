@@ -20,6 +20,7 @@ This repository features a Python script designed extracting data from Universal
    - Generate and download a JSON key file for the service account.
    - Securely store the JSON key file and note its path for the `KEY_FILE_LOCATION` in the script.
 3. **Add Service Account to UA Property Access Management**: Include the service account email in the UA property access management.
+4. **Grant the Service Account Access to BigQuery**: Add the service account email to the BigQuery project with the appropriate permissions. AND, grant the service account Bigquery.jobs.create permission.
 
 ## Setup and Configuration
 Fill in the following data in the script:
