@@ -7,11 +7,11 @@ import os
 
 # Configuration variables for Google Analytics and BigQuery
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
-KEY_FILE_LOCATION = ''  # Path to your Google Cloud service account key file
-VIEW_ID = ''  # Your Google Analytics View ID
-BIGQUERY_PROJECT = ''  # Your Google Cloud Project ID
-BIGQUERY_DATASET = ''  # BigQuery Dataset name where the data will be stored
-BIGQUERY_TABLE = ''  # BigQuery Table name where the data will be stored, if it does not exist, it will be created
+KEY_FILE_LOCATION = ''  # ontario-mould-424709-19ac9e47c330.json
+VIEW_ID = ''  # 94429575
+BIGQUERY_PROJECT = ''  # ontario-mould-424709
+BIGQUERY_DATASET = ''  # ontario-mould-424709.ontario
+BIGQUERY_TABLE = ''  # ontario-mould-424709.ontario.ontario
 
 # Setting up the environment variable for Google Application Credentials
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = KEY_FILE_LOCATION
