@@ -8,7 +8,7 @@ This repository features a Python script designed extracting data from Universal
 - **Data Retrieval from UA**: Fetches data based on specified metrics, dimensions, and date ranges.
 - **Data Conversion to DataFrame**: Converts API response into a Pandas DataFrame.
 - **Uploading to BigQuery**: Handles DataFrame column renaming, BigQuery client initialization, table creation, and data uploading.
-- **Availability for Both Billing and Sandbox Accounts: The script supports both billed and sandbox accounts in BigQuery, allowing for versatile testing and deployment environments.
+- **Availability for Both Billing and Sandbox Accounts**: The script supports both billed and sandbox accounts in BigQuery, allowing for versatile testing and deployment environments.
 
 
 ## Prerequisites
