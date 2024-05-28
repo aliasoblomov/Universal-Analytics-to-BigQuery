@@ -63,6 +63,68 @@ def get_report(analytics, page_token=None):
 
     return analytics.reports().batchGet(body=body).execute()
 
+def response_to_dataframe(response):
+    """Converts the API response into a pandas DataFrame."""
+    list_rows = []
+    for report in response.get('reports', []):
+        columnHeader = report.get('columnHeader', {})
+        dimensionHeaders = columnHeader.get('dimensions', [])
+        metricHeaders = columnHeader.get('metricHeader', {}).get('metricHeaderEntries', [])
+
+        for row in report.get('data', {}).get('rows', []):
+            dimensions = row.get('dimensions', [])
+            dateRangeValues = row.get('metrics', [])
+
+            row_data = {}
+            for header, dimension in zip(dimensionHeaders, dimensions):
+                row_data[header] = dimension
+
+            for values in dateRangeValues:
+                for metricHeader, value in zip(metricHeaders, values.get('values')):
+                    row_data[metricHeader.get('name')] = value
+
+            list_rows.append(row_data)
+
+    return pd.DataFrame(list_rows)
+
+def upload_to_bigquery(df, project_id, dataset_id, table_id):
+    """Uploads the DataFrame to Google BigQuery."""
+    # Rename columns from 'ga:' to 'gs_'
+    df.columns = [col.replace('ga:', 'gs_') for col in df.columns]
+
+    bigquery_client = bigquery.Client(project=project_id)
+    dataset_ref = bigquery_client.dataset(dataset_id)
+    table_ref = dataset_ref.table(table_id)
+    schema = []
+
+    # Define the schema of the table based on DataFrame columns
+    for col in df.columns:
+        # Choose BigQuery data type based on DataFrame column data type
+        dtype = df[col].dtype
+        if pd.api.types.is_integer_dtype(dtype):
+            bq_type = 'INTEGER'
+        elif pd.api.types.is_float_dtype(dtype):
+            bq_type = 'FLOAT'
+        elif pd.api.types.is_bool_dtype(dtype):
+            bq_type = 'BOOLEAN'
+        else:
+            bq_type = 'STRING'  # Default type
+
+        schema.append(bigquery.SchemaField(col, bq_type))
+
+    # Create a new table if it doesn't exist
+    try:
+        bigquery_client.get_table(table_ref)
+    except NotFound:
+        table = bigquery.Table(table_ref, schema=schema)
+        bigquery_client.create_table(table)
+        print(f"Created table {table_id}")
+
+    # Upload data to BigQuery
+    load_job = bigquery_client.load_table_from_dataframe(df, table_ref)
+    load_job.result()
+    print(f"Data uploaded")
+
 def main():
     """Main function to execute the script."""
     try:
