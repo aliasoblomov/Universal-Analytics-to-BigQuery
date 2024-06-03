@@ -7,11 +7,24 @@ import os
 
 # Configuration variables for Google Analytics and BigQuery
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
-KEY_FILE_LOCATION = ''  # Path to your Google Cloud service account key file
-VIEW_ID = ''  # Your Google Analytics View ID
-BIGQUERY_PROJECT = ''  # Your Google Cloud Project ID
-BIGQUERY_DATASET = ''  # BigQuery Dataset name where the data will be stored
-BIGQUERY_TABLE = ''  # BigQuery Table name where the data will be stored, if it does not exist, it will be created
+KEY_FILE_LOCATION = ''  # {
+  "type": "service_account",
+  "project_id": "ontario-mould-424709",
+  "private_key_id": "8d2803dbc4e6f80ce9d77ec24c042db5244cbcc9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDW4TiRmKkmJEi+\nobYNxmgMkxlzf7+hUpEricd6fflU3ZatNIBS1cN9f97xMUZazGtprMpVHdiiLOVL\nJtTxLem38oIjQneZoS91NmewCaFoWyqRUFgrRnwpoy7nowrsnfJ88dmws42L7sR8\nXIyaIRgk1orYewklYj9Rr0BVWkw4hXXPVbCntYeC7dFwn6KlEdOSrNUhlhFPpFLC\nVtpONA3Ho8VfbvjO57qq9PUU2NxxiPYQkQY5KmVfQr5uTjz37n71ny7JG9TwzSBE\nh5dlaS/pjgttQjTgakBeyv+WZMjfD4cT8ZIPN9CVozgV10/X5ES1d7UCfpvcUCWD\nXsplA3JVAgMBAAECggEAGdC2DJvkGm56hNiFuDLxdi1H/f3HhniWcz4axocS6NS0\nUPvBPPJsiYvOu3hZhPgRIYF+T2qGB7nQFE7Gf3EuJojOhLDsEHtyaakPHPGTQCfP\nveSCqzRNH2146aBHZDT3mHYv2pA/vaOCXJR72dqG/Yn+5VImv6SFiek9l+OAy7tY\nhUXRWwV9SUq9gXw5VMMD/BsTqsik2G6SCKmPDc/LFNUCn0YJtgSrxBpGW6cCWArf\nYDajwMF3/4BrnBqT9nK2yweBRN5vn9cAaWfeK0A7VH3/IoOg9ahon/3gOgj+NIWJ\nP5YLxAE0fDRYIWgQigW2U5RxckcwyXc9sF2lEOowUwKBgQD2+GHcyCuWs4JxL5OV\nr3KvTmS+T1mLV85j3jgO/sxBntezTk1ooh0ODhcPI2zRUf82hNrp6W6MKyzDJiaX\nNQyR9wvRwU0LCvr67AmhnxIDMTUaTFjbya4C6Ijpa1OOchzWukGl+RQL2AMJ1WHh\n6ZV5hinx18LEmW+V5NL4C95ugwKBgQDevHmWKqbJdYAxDXCOyfGjZJ1p4hOyl152\nC3WZkVldXQcy8ht/8tbPHhvvu2/IXrjleH65TzCp2PviptBLz2Ditkl7SfvOAHZN\nMdss9rE4TdpgZD1diK9z7SViwhaZ++/y60ahSTyTvrAeMqqXf1QyKe4fB0XL09MD\ni4O6VahERwKBgQDAWN7PN09Lhe+X+7f0Irstcd7goahZ8D8cZNxAQY4PpYjVa6y6\nS1hZs/udnLeJp1UfvwVInLeuj4nDS5lOttBddo1MBkLc0OZ8Ow2dROigd9il7MRg\nGYlfVoAbW62uCY4QZuvuOjm0p75mEDy12FjEVwugAaz9tYrEsXzmF0hbxQKBgQCr\nymxwwNbBHSpRKw98Yg9IOYsbpm4Q2aTWoQID/tIRK3Yo+gjxx2eceZmMbmHKBhzP\nh/8diBF9fsjPyF9xiTItyfCk8awP99VGtsRYSrDnP0zF+apG4OyKGgcyw4XRIDqy\nfnqMXUMmpPWLZQKkNGXJBwQM1HwluGvRGSLxba2JcwKBgQC56RgdNabWAcvuITVH\nRAbX+z9eMTuEBIlm2b9AHdDlR0Hwsu/eI1u5rKBbOC5m6Ahxi459l105sLNmmgxo\nBN17imCsiG4ijeBU3mXv5VHv2Rawhpzw/QwwW7HohQbqtSs6bisTI+ngnyrCIZFQ\nE+RuJq6nQE3S3Tl1hnK31/dHIg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ontario-mould@ontario-mould-424709.iam.gserviceaccount.com",
+  "client_id": "106274552641727866882",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ontario-mould%40ontario-mould-424709.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+
+VIEW_ID = ''  # 94429575
+BIGQUERY_PROJECT = ''  # ontario-mould-424709
+BIGQUERY_DATASET = ''  # ontario-mould-424709.ontario
+BIGQUERY_TABLE = ''  # on_123
 
 # Setting up the environment variable for Google Application Credentials
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = KEY_FILE_LOCATION
